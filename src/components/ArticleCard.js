@@ -1,14 +1,41 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { saveArticle } from '../store/actions/index';
 
 const ArticleCard = (props) => {
-  const { title, author, image, summary, category, rank } = props.article;
-  console.log(props);
+  const {
+    title,
+    author,
+    image,
+    summary,
+    category,
+    rank,
+    id,
+  } = props.article;
+//   console.log(props);
+
+  const newCard = {
+    title: title,
+    author: author,
+    image: image,
+    summary: summary,
+    category: category,
+    rank: rank,
+    id: id,
+  };
+  const onClick = () => {
+    props.saveArticle(newCard.id);
+    // console.log(saveArticle);
+  };
 
   return (
     <div>
       {props.article ? (
         <div className="article-card">
-          <h1>{title}</h1>
+          <Link key={id} to={`/articles/${id}`}>
+            <h1>{title}</h1>
+          </Link>
 
           <h3>Author: {author}</h3>
           <img className="image" src={image}></img>
@@ -25,8 +52,18 @@ const ArticleCard = (props) => {
       ) : (
         <p>Loading...</p>
       )}
+      <button className="save-btn" onClick={onClick} >
+        Save
+      </button>
     </div>
   );
 };
 
-export default ArticleCard;
+const mapStateToProps = (state) => {
+  return {
+  };
+};
+
+export default connect(mapStateToProps, {
+  saveArticle,
+})(ArticleCard);

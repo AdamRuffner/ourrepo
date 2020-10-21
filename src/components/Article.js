@@ -14,8 +14,8 @@ function Article({ addToSavedList }) {
       .catch((err) => console.log("ERROR: fetchArticle", err.response));
   };
 
-//   const saveArticle = (e) => {
-//       console.log(e)
+//   const saveArticle = () => {
+//       console.log(saveArticle)
 //     addToSavedList(article);
 //     history.push(`/saved-articles`);
 //   };
@@ -30,12 +30,6 @@ function Article({ addToSavedList }) {
 
   return (
     <div className="save-wraper">
-      {/* <div className="save-btn" onClick={saveArticle}>
-        Save
-      </div> */}
-      <div className="edit-btn" onClick={editArticle}>
-        Edit Rank
-      </div>
     </div>
   );
 }

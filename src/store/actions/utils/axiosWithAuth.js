@@ -4,7 +4,7 @@ import axios from "axios";
 export const axiosWithAuth = () => {
   let token = window.localStorage.getItem("token");
   token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbW15MSIsInVzZXJJZCI6NjUsImlhdCI6MTYwMzIyMTc2NiwiZXhwIjoxNjAzMjM5NzY2fQ.MzWTIhrXelq9CXnSsRabwuGat07CBunxHOPnKm8Lkm0";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkYW0iLCJ1c2VySWQiOjYzLCJpYXQiOjE2MDMzMDkyMjYsImV4cCI6MTYwMzMyNzIyNn0.b9W3vhJTB04MUPAfke0eRYfW7Ld5Y6TJomS3tVrm-no";
   return axios.create({
     headers: {
       authorization: token

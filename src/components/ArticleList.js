@@ -2,28 +2,31 @@ import React from "react";
 import ArticleCard from "./ArticleCard";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import SavedList from "./SavedList";
 
-function ArticleList({ articles, addToSavedList }) {
+function ArticleList(props) {
+  const { articles, setSavedList, savedList } = props;
   const history = useHistory();
 
-  const saveArticle = (article) => {
-    addToSavedList(article);
-    history.push(`/saved-articles`);
-    console.log(article)
-  };
+  //   const saveArticle = (article) => {
+  //     setSavedList(article);
+  //   console.log(savedList)
+  // };
 
-  console.log(articles);
+  //   console.log(setSavedList);
   return (
     <div className="article-list">
       {articles
         ? articles.map((article) => (
             <div>
-              <Link key={article.id} to={`/articles/${article.id}`}>
-                <ArticleCard article={article} />
-              </Link>
-              <div className="save-btn"  onClick={saveArticle}>
+              <ArticleCard
+                article={article}
+                // setSavedList={setSavedList}
+                // savedList={savedList}
+              />
+              {/* <div className="save-btn" onClick={saveArticle(article)}>
                 Save
-              </div>
+              </div> */}
             </div>
           ))
         : "loading.."}
